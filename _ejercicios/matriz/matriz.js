@@ -1,46 +1,61 @@
 let w = 600;
-let n = 7;
+let datos = [];
+let m = w/n
+
+
+
+
 
 function setup() {
   createCanvas(w, w);
+  colorMode(HSB); //  -> H 0-360  S 0-100, B 0-100
+  angleMode(DEGREES);
+  
+  // añado valores al array
+  datos.push(5); // un valor mas al final
+  datos.push(9);
+  datos.push(23);
+    datos.push(random(100));
+
+
+    creaDatos
+
+  console.log(datos); // pone los datos en la consola
 }
 
 function draw() {
-  background(220);
-  let m = w/n;
+  background(0,0,50); // HSB
+// acceder a los datos de un array
+  circle(w/2,w/2, datos[3]); // 0,1,2,3 -> 1,2 3,4
+  
+  
+  
+  // dibujo de matriz
+  for(let fila= 0; fila< n; fila++){
+    for(col = 0; col<n; col++){
+  circle(col*m, fila*m, m/2)
+  
+  
+    }
+}
 
-  stroke(0);
 
-   for(let fila= 0; fila< n; fila++){
-     strokeWeight(1);
-     line(0, (fila*m), w, (fila*m));
-     line((fila*m), 0, (fila*m), w);
 
-     for(col = 0; col<n; col++){
 
-      let i = (fila*n) + col; // indice
-      let x = col*m;
-      let y = fila*m;
-      let xc = x + (m/2);
-      let yc = y + (m/2);
 
-      let d = map(i, 0, n*n, 2, m); // diametro
-      // let g = map(fila, 0, n-1, 0,255); // gris
-      let g = map(i, 0, n*n, 0,255); // gris
-      let s = map(fila, 0, n-1, 1,8);
 
-      fill(255-g);
-      strokeWeight(1);
-      rect(x,y,m,m);
 
-      fill(g);
-      strokeWeight(s);
-      circle(xc, yc, d);
+function keyTyped(){
+    creaDatos();
+   // console.log(key);
+}
 
-      // textAlign(CENTER, CENTER);
-      // text(fila, xc, yc);
-
-     }
-   }
-
+function creaDatos(){
+    datos = []; // limpia los datos
+    // n*n valores nuevos
+    for(let i = 0; i < n*n; i++){
+        datos.push(floor(random(2))); // añade un valor nuevo
+    }
+    // imprime los datos en la consola
+    console.log(datos);
 }
