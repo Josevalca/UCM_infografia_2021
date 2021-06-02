@@ -52,20 +52,20 @@ function draw() {
           
           if(d == 1){
             //desde esquina de arriba izquierda a abajo derecha
-            color(100)
+            color(0)
             strokeWeight(5)
             line(x,y,x+m,y+m)
           }else{
             //desde esquina de abajo izquierda a arriba derecha
-            stroke(200,40,200)
+            stroke(0)
            strokeWeight(m/2)
             line(x,y+m,x+m,y)
          
-           {  color(0)
+           {  fill(20,400,100)
             strokeWeight(0)
             circle(x,y,m/4)}
        
-               { fill(200,40,200)
+               { fill(0)
             color(100)
            ;
             circle(y,x,m/2)
